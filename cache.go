@@ -95,8 +95,10 @@ func (c *cache) AddSchedule(data *[]byte) {
 
   for _, sd := range sdData {
 
-    if _, ok := c.Schedule[sd.StationID]; !ok {
-      c.Schedule[sd.StationID] = []G2GCache{}
+    stationID := strconv.Itoa(sd.StationID)
+
+    if _, ok := c.Schedule[stationID]; !ok {
+      c.Schedule[stationID] = []G2GCache{}
     }
 
     for _, p := range sd.Programs {
@@ -111,7 +113,7 @@ func (c *cache) AddSchedule(data *[]byte) {
       g2gCache.Ratings = p.Ratings
       g2gCache.VideoProperties = p.VideoProperties
 
-      c.Schedule[sd.StationID] = append(c.Schedule[sd.StationID], g2gCache)
+      c.Schedule[stationID] = append(c.Schedule[stationID], g2gCache)
 
     }
 

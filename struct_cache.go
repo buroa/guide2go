@@ -127,5 +127,5 @@ type SDSchedule struct {
     } `json:"ratings"`
     VideoProperties []string `json:"videoProperties"`
   } `json:"programs"`
-  StationID string `json:"stationID"`
+  StationID int `json:"stationID"`
 }
